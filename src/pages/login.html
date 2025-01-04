@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../styles/reset.css" />
+        <link rel="stylesheet" href="../styles/globalStyles.css" />
+        <link rel="stylesheet" href="../styles/buttons.css" />
+        <link rel="stylesheet" href="../styles/login.css" />
+        <title>PetInfo</title>
+    </head>
+    <body>
+        <main class="main container">
+            <section class="main__section-petinfo-login">
+                <h1 class="section-petinfo-login__title">Petinfo</h1>
+                <p class="section-petinfo-login__subtitle">
+                    <strong class="subtitle__blue">Amor</strong> e
+                    <strong class="subtitle__blue">carinho</strong> por meio do
+                    conhecimento
+                </p>
+                <p class="section-petinfo-login__description">
+                    Todas as informações para melhorar a vida do seu pet em um
+                    só lugar
+                </p>
+                <figure class="section-petinfo-login__img">
+                    <img
+                        src="../assets/login/img/img-login.jpg"
+                        alt="image pets"
+                    />
+                </figure>
+            </section>
+            <form action="" class="main__form-login">
+                <h1 class="form-login__title">Login</h1>
+                <div class="form-login__div-input">
+                    <label for="Email" class="div-input__label">Email</label>
+                    <input
+                        type="email"
+                        name="Email"
+                        id="email-login"
+                        placeholder="Digite seu email..."
+                        class="div-input__input"
+                        required
+                    />
+                </div>
+                <div
+                    class="form-login__div-input form-login__div-input-password"
+                >
+                    <label for="Password" class="div-input__label">Senha</label>
+                    <input
+                        type="password"
+                        name="Password"
+                        id="login-password"
+                        placeholder="Digite sua senha aqui..."
+                        class="div-input__input"
+                        required
+                    />
+                </div>
+                <button class="form-login__access">Acessar</button>
+                <p class="form-login__question">Ainda não possui conta?</p>
+                <p class="form-login__description">
+                    Clicando no botão abaixo, você pode se cadastrar rapidamente
+                </p>
+                <a href="./register.html" class="form-login__return-register"
+                    >Cadastrar</a
+                >
+            </form>
+        </main>
+        <script src="../config/axios.js" type="module"></script>
+        <script src="../scripts/login/request.js" type="module"></script>
+        <script src="../scripts/login/index.js" type="module"></script>
+    </body>
+</html>

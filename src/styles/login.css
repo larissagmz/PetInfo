@@ -1,0 +1,135 @@
+.main{
+    display: flex;
+    height: 100%;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__section-petinfo-login{
+    height: 479px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+    width: 393px;
+}
+
+.section-petinfo-login__title{
+    color: var(--gray100);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.section-petinfo-login__subtitle{
+    color: var(--gray100);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 3rem;
+}
+
+.subtitle__blue{
+    color: var(--brand100);
+}
+
+.section-petinfo-login__description{
+    color: var(--gray300);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    width: 320px;
+}
+
+.section-petinfo-login__img{
+    width: 297px;
+    height: 215px;
+}
+
+.main__form-login{
+    height: 600px;
+    padding: 44px 24px;
+    color: var(--gray100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 26px;
+    width: 368px;
+    border: 1px solid var(--gray600);
+    border-radius: 4px;
+    justify-content: space-between;
+}
+
+.form-login__title{
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.form-login__div-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.div-input__input{
+    background-color: var(--gray800);
+    border-radius: 4px;
+    padding-left: 16px;
+    height: 44px;
+    border: 1px solid var(--gray600);
+}
+
+.div-input__input::placeholder{
+    color: var(--gray400);
+}
+
+.div-input__label{
+    color: var(--gray100);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.form-login__access{
+    width: 100%;
+    color: var(--gray900);
+    background-color: var(--brand100);
+    padding: 10px 0;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.form-login__question{
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.form-login__description{
+    color: var(--gray300);
+    font-weight: 400;
+    font-size: 0.875rem;
+    text-align: center;
+    line-height: 21px;
+}
+
+.form-login__return-register{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid var(--gray600);
+    text-decoration: none;
+    color: var(--gray100);
+}
+
+.div-input__input--error{
+    border: 1px solid var(--alert100);
+}
+
+.div-input__message-error{
+    color: var(--alert100);
+    font-weight: 400;
+    font-size: 0.875rem;
+}

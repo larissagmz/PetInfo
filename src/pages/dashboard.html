@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../styles/reset.css" />
+        <link rel="stylesheet" href="../styles/globalStyles.css" />
+        <link rel="stylesheet" href="../styles/buttons.css" />
+        <link rel="stylesheet" href="../styles/dashboard.css" />
+        <link rel="stylesheet" href="../styles/modal.css" />
+
+        <title>petInfo</title>
+    </head>
+    <body>
+        <header class="header container">
+            <h1 class="header__title">Petinfo</h1>
+            <div class="header__div-profile">
+                <button class="div-profile__create-post">
+                    Criar publicacao
+                </button>
+                <figure class="div-profile__img">
+                    <img class="img__img" src="" alt="" />
+                </figure>
+            </div>
+        </header>
+        <main class="main container">
+            <h1 class="main__title-feed">Feed</h1>
+            <ul class="main__list-posts"></ul>
+            <dialog class="main__modal">
+                <div class="modal__div-close-modal">
+                    <h1 class="div-close-modal__title-modal">
+                        Criando novo post
+                    </h1>
+                    <button class="div-close-modal__button-close">X</button>
+                </div>
+                <form action="" method="dialog" class="modal__form-modal">
+                    <div class="form-modal__div-input-modal">
+                        <label for="title" class="div-input-modal__label"
+                            >Título do post</label
+                        >
+                        <input
+                            type="text"
+                            name="title"
+                            id="title-post"
+                            class="div-input-modal__input"
+                            placeholder="Digite o título aqui..."
+                            required
+                        />
+                    </div>
+                    <div class="form-modal__div-input-modal">
+                        <label class="div-input-modal__label" for="content"
+                            >Conteúdo do post</label
+                        >
+                        <textarea
+                            name="content"
+                            id="content-modal"
+                            class="div-input-modal__textArea"
+                            rows="5"
+                            oninput="autoResize(this)"
+                            placeholder="Desenvolva o conteúdo do post aqui..."
+                            required
+                        ></textarea>
+                    </div>
+                    <div class="modal__div-buttons">
+                        <button type="button" class="form-modal__cancel-button">
+                            Cancelar
+                        </button>
+                        <button class="form-modal__send-post" type="submit">
+                            Publicar
+                        </button>
+                    </div>
+                </form>
+            </dialog>
+            <dialog class="main__modal-acess-post">
+                <div class="post__div-user">
+                    <div class="div-user__div">
+                        <figure class="div__img-post">
+                            <img
+                                class="img-modal img-post__img"
+                                src=""
+                                alt=""
+                            />
+                        </figure>
+                        <div class="div__div-span">
+                            <span
+                                class="div-span__name-user-modal div-span__name-user"
+                            ></span>
+                            <div class="div-span__grey"></div>
+                            <span
+                                class="div-span__date-modal div-span__date"
+                            ></span>
+                        </div>
+                    </div>
+                    <button class="div-user__button-close-modal">X</button>
+                </div>
+                <h1 class="modal-acess-post__title post__title-post"></h1>
+                <p class="modal-acess-post__content"></p>
+            </dialog>
+
+            <dialog id="edit-modal" class="main__modal">
+                <div class="modal__div-close-modal">
+                    <h1 class="div-close-modal__title-modal">Edição</h1>
+                    <button
+                        id="close-edit-modal"
+                        class="div-close-modal__button-close"
+                    >
+                        X
+                    </button>
+                </div>
+            </dialog>
+        </main>
+        <script>
+            const autoResize = (textarea) => {
+                textarea.style.height = "auto";
+                textarea.style.height = `${textarea.scrollHeight}px`;
+            };
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const textarea = document.querySelector("textarea");
+
+                textarea.addEventListener("input", () => autoResize(textarea));
+
+                if (textarea.value.trim() !== "") {
+                    autoResize(textarea);
+                }
+            });
+        </script>
+        <script src="../config/axios.js" type="module"></script>
+        <script src="../scripts/posts/request.js" type="module"></script>
+        <script src="../scripts/posts/posts.js" type="module"></script>
+    </body>
+</html>

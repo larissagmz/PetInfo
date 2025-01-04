@@ -1,0 +1,55 @@
+:root {
+  --brand100: hsl(230, 57%, 50%);
+  --brand200: hsl(230, 68%, 54%);
+  --gray100: hsl(210, 11%, 15%);
+  --gray200: hsl(210, 10%, 23%);
+  --gray300: hsl(210, 9%, 31%);
+  --gray400: hsl(210, 7%, 56%);
+  --gray500: hsl(210, 11%, 71%);
+  --gray600: hsl(210, 16%, 93%);
+  --gray700: hsl(210, 17%, 95%);
+  --gray800: hsl(210, 17%, 98%);
+  --gray900: hsl(200, 100%, 99%);
+  --alert100: hsl(349, 57%, 50%);
+  --alert200: hsl(349, 69%, 55%);
+  --sucess100: hsl(162, 88%, 26%);
+}
+img{
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "IBM Plex Sans", serif;
+  background-color: var(--gray900);
+  height: 100%;
+  position: relative;
+}
+
+.container {
+  max-width: 50rem;
+  margin: 0 auto;
+  height: 100%;
+}
+
+dialog {
+  all: unset;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--gray900);
+    border-radius: 8px;
+    padding: 33px 24px;
+    border: 0;
+    width: 48rem;
+    max-height: 80vh;
+    border-radius: 8px;
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
