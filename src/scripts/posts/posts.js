@@ -22,6 +22,8 @@ const renderPosts = async () => {
     modal.style.display = "none";
     const editModal = document.querySelector("#edit-modal");
     editModal.style.display = "none";
+    const modalDelete = document.querySelector(".main__modal-delete");
+    modalDelete.style.display = "none";
 
     const ul = document.querySelector(".main__list-posts");
 
@@ -103,7 +105,7 @@ const renderPosts = async () => {
     ul.innerHTML = "";
     ul.append(fragment);
     ul.addEventListener("click", getPostById);
-    ul.addEventListener("click", deletePost);
+
     ul.addEventListener("click", openEditPost);
 };
 
@@ -233,14 +235,45 @@ const closeEdit = () => {
     });
 };
 
-const deletePost = async (event) => {
-    const button = event.target.closest(".div-buttons__delete");
-    if (!button) return;
+const openModalDelete = () => {
+    const ul = document.querySelector(".main__list-posts");
+    const modalDelete = document.querySelector(".main__modal-delete");
+    const buttonDelete = document.querySelector(".div-buttons-delete__submit");
+    const buttonCancel = document.querySelector(".div-buttons-delete__cancel");
+    const buttonClose = document.querySelector("#button-close-delete");
 
-    const id = button.dataset.deleteId;
+    let id;
 
-    await deletePostRequest(token, id);
-    renderPosts();
+    const closeModal = () => {
+        modalDelete.style.display = "none";
+        modalDelete.close();
+    };
+
+    buttonCancel.addEventListener("click", () => {
+        closeModal();
+    });
+
+    buttonClose.addEventListener("click", () => {
+        closeModal();
+    });
+
+    buttonDelete.addEventListener("click", async () => {
+        await deletePostRequest(token, id);
+        closeModal();
+        renderPosts();
+    });
+
+    const deletePost = async (event) => {
+        const button = event.target.closest(".div-buttons__delete");
+        if (!button) return;
+
+        id = button.dataset.deleteId;
+
+        modalDelete.showModal();
+        modalDelete.style.display = "flex";
+    };
+
+    ul.addEventListener("click", deletePost);
 };
 
 const renderAcessPost = (post) => {
@@ -347,11 +380,42 @@ const addPost = () => {
     });
 };
 
+const renderLogout = () => {
+    const imgProfile = document.querySelector(".div-profile__avatar");
+    const divLogout = document.querySelector(".avatar__div-logout");
+
+    imgProfile.addEventListener("mouseover", () => {
+        divLogout.style.display = "flex";
+    });
+
+    imgProfile.addEventListener("mouseout", () => {
+        divLogout.style.display = "none";
+    });
+};
+
+const handleLogout = async () => {
+    const buttonLogout = document.querySelector(
+        ".div-information__logout-account"
+    );
+    const username = document.querySelector(".div-logout__username");
+
+    const user = await getUser(token);
+
+    username.textContent = `@${user.username}`;
+    buttonLogout.addEventListener("click", async () => {
+        window.location.href = "../pages/login.html";
+        localStorage.removeItem("token");
+    });
+};
+
 const main = () => {
     renderUser(token);
     renderPosts();
     addPost();
     closeEdit();
+    openModalDelete();
+    handleLogout();
 };
 
 main();
+renderLogout();

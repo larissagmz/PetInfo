@@ -160,3 +160,63 @@ img{
     text-align: left;
 }
 
+.avatar__div-logout{
+    width: 215px;
+    height: 117px;
+    display: none;
+    flex-direction: column;
+    padding: 22px 17px;
+    gap: 28px;
+    justify-content: center;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    box-shadow: 2px 5px 15px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    animation: logout 0.5s;
+}
+
+@keyframes logout {
+    from {
+        transform: translateY(-15px);
+        opacity: 0;
+    } 
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.div-logout__username{
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--gray100);
+}
+
+.div-logout__div-information{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.div-information__img-logout{
+    width: 14px;
+    height: 21px;
+}
+
+.img-logout__img{
+    object-fit: contain;
+}
+
+.div-information__logout-account{
+    columns: var(--gray100);
+    font-weight: 500;
+    font-size: 0.875rem;
+    background-color: transparent;
+    text-align: center;
+}
+
+.div-profile__avatar{
+    position: relative;
+
+}

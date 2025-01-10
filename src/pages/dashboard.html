@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,9 +24,26 @@
                 <button class="div-profile__create-post">
                     Criar publicacao
                 </button>
-                <figure class="div-profile__img">
-                    <img class="img__img" src="" alt="" />
-                </figure>
+                <div class="div-profile__avatar">
+                    <figure class="div-profile__img">
+                        <img class="img__img" src="" alt="" />
+                    </figure>
+                    <div class="avatar__div-logout">
+                        <h1 class="div-logout__username"></h1>
+                        <div class="div-logout__div-information">
+                            <figure class="div-information__img-logout">
+                                <img
+                                    class="img-logout__img"
+                                    src="../assets/dashboard/img/sign-out-alt.png"
+                                    alt=""
+                                />
+                            </figure>
+                            <button class="div-information__logout-account">
+                                Sair da conta
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
         <main class="main container">
@@ -111,6 +128,36 @@
                         class="div-close-modal__button-close"
                     >
                         X
+                    </button>
+                </div>
+            </dialog>
+            <dialog class="main__modal-delete">
+                <div class="modal__div-close-modal">
+                    <h1 class="div-close-modal__title-modal">
+                        Confirmação de exclusão
+                    </h1>
+                    <button
+                        id="button-close-delete"
+                        class="div-close-modal__button-close"
+                    >
+                        X
+                    </button>
+                </div>
+                <div class="modal-delete__div-title">
+                    <h1 class="post__title-post">
+                        Tem certeza que deseja excluir este post?
+                    </h1>
+                    <p class="modal-delete__content">
+                        Essa ação não poderá ser desfeita, então pedimos que
+                        tenha cautela antes de concluir
+                    </p>
+                </div>
+                <div class="modal-delete__div-buttons-delete">
+                    <button class="div-buttons-delete__cancel button-delete">
+                        Cancelar
+                    </button>
+                    <button class="div-buttons-delete__submit button-delete">
+                        Sim, excluir este post
                     </button>
                 </div>
             </dialog>

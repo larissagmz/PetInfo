@@ -113,3 +113,37 @@
     color: var(--gray900);
 }
 
+.main__modal-delete{
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+}
+
+.modal-delete__div-title{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modal-delete__div-buttons-delete{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.button-delete{
+    padding: 7px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.div-buttons-delete__cancel{
+    background-color: var(--gray600);
+    color: var(--gray400);
+}
+
+.div-buttons-delete__submit{
+    background-color: var(--alert100);
+    color: var(--gray900);
+}

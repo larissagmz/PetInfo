@@ -47,9 +47,17 @@ dialog {
     top: 50px;
     left: 50%;
     transform: translateX(-50%);
-
+    animation: modal 0.5s ;
 }
 
+@keyframes modal {
+  from {
+    top: -200px; 
+  }
+  to {
+    top: 50px; 
+  }
+}
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
