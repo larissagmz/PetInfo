@@ -20,7 +20,7 @@
             <form class="main__form-register" action="">
                 <h1 class="form-register__title">Cadastro</h1>
                 <div class="form-register__div-input">
-                    <label for="user">Usuario</label>
+                    <label for="register-user">Usuario</label>
                     <input
                         class="div-input__input-register"
                         type="text"
@@ -31,7 +31,7 @@
                     />
                 </div>
                 <div class="form-register__div-input">
-                    <label for="email">Email</label>
+                    <label for="register-email">Email</label>
                     <input
                         class="div-input__input-register"
                         type="email"
@@ -42,7 +42,7 @@
                     />
                 </div>
                 <div class="form-register__div-input">
-                    <label for="avatar">Link da foto do perfil</label>
+                    <label for="register-avatar">Link da foto do perfil</label>
                     <input
                         class="div-input__input-register"
                         type="url"
@@ -53,7 +53,7 @@
                     />
                 </div>
                 <div class="form-register__div-input">
-                    <label for="password">Senha</label>
+                    <label for="register-password">Senha</label>
                     <input
                         class="div-input__input-register"
                         type="password"
@@ -62,6 +62,15 @@
                         placeholder="Digite sua senha aqui"
                         required
                     />
+
+                    <div id="password-strength">
+                        <div class="strength-segment"></div>
+                        <div class="strength-segment"></div>
+                        <div class="strength-segment"></div>
+                        <div class="strength-segment"></div>
+                        <div class="strength-segment"></div>
+                    </div>
+                    <p id="password-message"></p>
                 </div>
                 <button type="submit" class="form-register__button-register">
                     Cadastrar
@@ -99,5 +108,9 @@
         <script type="module" src="../config/axios.js"></script>
         <script type="module" src="../scripts/register/request.js"></script>
         <script type="module" src="../scripts/register/index.js"></script>
+        <script
+            type="module"
+            src="../scripts/register/strengthPassword.js"
+        ></script>
     </body>
 </html>

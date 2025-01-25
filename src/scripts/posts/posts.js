@@ -9,7 +9,7 @@ import {
 
 const token = localStorage.getItem("token");
 
-const renderUser = async (token) => {
+const handleRenderUser = async (token) => {
     const user = await getUser(token);
 
     const imgUser = document.querySelector(".img__img");
@@ -17,7 +17,7 @@ const renderUser = async (token) => {
     imgUser.src = user.avatar;
 };
 
-const renderPosts = async () => {
+const handleRenderPosts = async () => {
     const modal = document.querySelector(".main__modal-acess-post");
     modal.style.display = "none";
     const editModal = document.querySelector("#edit-modal");
@@ -104,12 +104,12 @@ const renderPosts = async () => {
     });
     ul.innerHTML = "";
     ul.append(fragment);
-    ul.addEventListener("click", getPostById);
+    ul.addEventListener("click", openPostModalById);
 
-    ul.addEventListener("click", openEditPost);
+    ul.addEventListener("click", handleOpenEditPostModal);
 };
 
-const renderFormEdit = (dialog) => {
+const createFormEdit = (dialog) => {
     if (document.querySelector("#edit-form")) {
         document.querySelector("#edit-form").remove();
     }
@@ -180,12 +180,12 @@ const renderFormEdit = (dialog) => {
     dialog.appendChild(form);
 };
 
-const openEditPost = async (event) => {
+const handleOpenEditPostModal = async (event) => {
     const button = event.target.closest(".div-buttons__edit");
     if (!button) return;
     let id = button.dataset.editId;
     const editModal = document.querySelector("#edit-modal");
-    renderFormEdit(editModal);
+    createFormEdit(editModal);
 
     const form = document.querySelector("#edit-form");
     const post = await getPost(token, id);
@@ -213,7 +213,7 @@ const openEditPost = async (event) => {
 
         await editPostRequest(token, post.id, updatePost);
 
-        renderPosts();
+        handleRenderPosts();
         editModal.close();
         editModal.style.display = "none";
         title.value = "";
@@ -221,12 +221,7 @@ const openEditPost = async (event) => {
     });
 };
 
-const autoResize = (textarea) => {
-    textarea.style.height = "auto";
-    textarea.style.height = `${textarea.scrollHeight}px`;
-};
-
-const closeEdit = () => {
+const handleCloseEditModal = () => {
     const editModal = document.querySelector("#edit-modal");
     const buttonClose = document.querySelector("#close-edit-modal");
     buttonClose.addEventListener("click", () => {
@@ -235,7 +230,7 @@ const closeEdit = () => {
     });
 };
 
-const openModalDelete = () => {
+const handleOpenDeleteModal = () => {
     const ul = document.querySelector(".main__list-posts");
     const modalDelete = document.querySelector(".main__modal-delete");
     const buttonDelete = document.querySelector(".div-buttons-delete__submit");
@@ -260,7 +255,7 @@ const openModalDelete = () => {
     buttonDelete.addEventListener("click", async () => {
         await deletePostRequest(token, id);
         closeModal();
-        renderPosts();
+        handleRenderPosts();
     });
 
     const deletePost = async (event) => {
@@ -276,7 +271,7 @@ const openModalDelete = () => {
     ul.addEventListener("click", deletePost);
 };
 
-const renderAcessPost = (post) => {
+const handleRenderAcessPost = (post) => {
     const imgUser = document.querySelector(".img-modal");
     const nameUser = document.querySelector(".div-span__name-user-modal");
     const date = document.querySelector(".div-span__date-modal");
@@ -294,7 +289,7 @@ const renderAcessPost = (post) => {
     content.textContent = post.content;
 };
 
-const getPostById = async (event) => {
+const openPostModalById = async (event) => {
     const button = event.target.closest(".post__access-publication");
     if (!button) return;
     const modal = document.querySelector(".main__modal-acess-post");
@@ -314,7 +309,7 @@ const getPostById = async (event) => {
     buttonExitModal.addEventListener("click", closeModalHandler);
     modal.style.display = "flex";
     modal.showModal();
-    renderAcessPost(post);
+    handleRenderAcessPost(post);
 };
 
 const getMonthName = (ordinalNumber) => {
@@ -336,7 +331,7 @@ const getMonthName = (ordinalNumber) => {
     return months[ordinalNumber] || "-";
 };
 
-const addPost = () => {
+const handleCreatePostModal = () => {
     const buttonCloseModal = document.querySelector(
         ".div-close-modal__button-close"
     );
@@ -375,12 +370,12 @@ const addPost = () => {
         };
 
         await createPost(token, post);
-        renderPosts();
+        handleRenderPosts();
         closeModal();
     });
 };
 
-const renderLogout = () => {
+const handleLogoutDisplay = () => {
     const imgProfile = document.querySelector(".div-profile__avatar");
     const divLogout = document.querySelector(".avatar__div-logout");
 
@@ -393,7 +388,7 @@ const renderLogout = () => {
     });
 };
 
-const handleLogout = async () => {
+const handleUserLogout = async () => {
     const buttonLogout = document.querySelector(
         ".div-information__logout-account"
     );
@@ -409,13 +404,35 @@ const handleLogout = async () => {
 };
 
 const main = () => {
-    renderUser(token);
-    renderPosts();
-    addPost();
-    closeEdit();
-    openModalDelete();
-    handleLogout();
+    handleRenderUser(token);
+    handleRenderPosts();
+    handleCreatePostModal();
+    handleCloseEditModal();
+    handleOpenDeleteModal();
+    handleUserLogout();
+    updateTextArea();
+};
+
+const updateTextArea = () => {
+    const textArea = document.querySelector("#content-modal");
+
+    autoResize(textArea);
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const textarea = document.querySelector("textarea");
+
+        textarea.addEventListener("input", () => autoResize(textarea));
+
+        if (textarea.value.trim() !== "") {
+            autoResize(textarea);
+        }
+    });
+};
+
+const autoResize = (textarea) => {
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
 };
 
 main();
-renderLogout();
+handleLogoutDisplay();

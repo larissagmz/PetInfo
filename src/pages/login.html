@@ -38,7 +38,9 @@
             <form action="" class="main__form-login">
                 <h1 class="form-login__title">Login</h1>
                 <div class="form-login__div-input">
-                    <label for="Email" class="div-input__label">Email</label>
+                    <label for="email-login" class="div-input__label"
+                        >Email</label
+                    >
                     <input
                         type="email"
                         name="Email"
@@ -51,7 +53,9 @@
                 <div
                     class="form-login__div-input form-login__div-input-password"
                 >
-                    <label for="Password" class="div-input__label">Senha</label>
+                    <label for="login-password" class="div-input__label"
+                        >Senha</label
+                    >
                     <input
                         type="password"
                         name="Password"
@@ -61,7 +65,10 @@
                         required
                     />
                 </div>
-                <button class="form-login__access">Acessar</button>
+                <button class="form-login__access">
+                    Acessar
+                    <span class="loader loader--hidden"></span>
+                </button>
                 <p class="form-login__question">Ainda não possui conta?</p>
                 <p class="form-login__description">
                     Clicando no botão abaixo, você pode se cadastrar rapidamente
@@ -70,6 +77,7 @@
                     >Cadastrar</a
                 >
             </form>
+            <div class="fade fade--hidden"></div>
         </main>
         <script src="../config/axios.js" type="module"></script>
         <script src="../scripts/login/request.js" type="module"></script>

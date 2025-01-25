@@ -92,6 +92,7 @@ html{
     font-weight: 400;
 }
 
+
 .main__toastify{
     position: absolute;
     display: inline-block;
@@ -137,7 +138,7 @@ html{
     font-weight: 500;
 }
 
-.toastify-text__title--red{
+.toastify-text__title--error{
     color: red;
 }
 
@@ -153,3 +154,23 @@ html{
     display: none;
 }
 
+#password-strength {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.strength-segment {
+    width: 40px;
+    height: 5px;
+    background-color: #ddd; 
+    border-radius: 5px;
+}
+
+#password-message{
+    font-weight: 400;
+    font-size: 0.875rem;
+}

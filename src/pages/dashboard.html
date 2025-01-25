@@ -26,7 +26,7 @@
                 </button>
                 <div class="div-profile__avatar">
                     <figure class="div-profile__img">
-                        <img class="img__img" src="" alt="" />
+                        <img class="img__img" src="" alt="imagem de perfil" />
                     </figure>
                     <div class="avatar__div-logout">
                         <h1 class="div-logout__username"></h1>
@@ -35,7 +35,7 @@
                                 <img
                                     class="img-logout__img"
                                     src="../assets/dashboard/img/sign-out-alt.png"
-                                    alt=""
+                                    alt="imagem de perfil"
                                 />
                             </figure>
                             <button class="div-information__logout-account">
@@ -58,7 +58,7 @@
                 </div>
                 <form action="" method="dialog" class="modal__form-modal">
                     <div class="form-modal__div-input-modal">
-                        <label for="title" class="div-input-modal__label"
+                        <label for="title-post" class="div-input-modal__label"
                             >Título do post</label
                         >
                         <input
@@ -71,7 +71,9 @@
                         />
                     </div>
                     <div class="form-modal__div-input-modal">
-                        <label class="div-input-modal__label" for="content"
+                        <label
+                            class="div-input-modal__label"
+                            for="content-modal"
                             >Conteúdo do post</label
                         >
                         <textarea
@@ -79,7 +81,6 @@
                             id="content-modal"
                             class="div-input-modal__textArea"
                             rows="5"
-                            oninput="autoResize(this)"
                             placeholder="Desenvolva o conteúdo do post aqui..."
                             required
                         ></textarea>
@@ -101,7 +102,7 @@
                             <img
                                 class="img-modal img-post__img"
                                 src=""
-                                alt=""
+                                alt="imagem de perfil"
                             />
                         </figure>
                         <div class="div__div-span">
@@ -162,22 +163,7 @@
                 </div>
             </dialog>
         </main>
-        <script>
-            const autoResize = (textarea) => {
-                textarea.style.height = "auto";
-                textarea.style.height = `${textarea.scrollHeight}px`;
-            };
 
-            document.addEventListener("DOMContentLoaded", () => {
-                const textarea = document.querySelector("textarea");
-
-                textarea.addEventListener("input", () => autoResize(textarea));
-
-                if (textarea.value.trim() !== "") {
-                    autoResize(textarea);
-                }
-            });
-        </script>
         <script src="../config/axios.js" type="module"></script>
         <script src="../scripts/posts/request.js" type="module"></script>
         <script src="../scripts/posts/posts.js" type="module"></script>
