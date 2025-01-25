@@ -1,5 +1,5 @@
 const passwordInput = document.getElementById("register-password");
-const strengthSegments = document.querySelectorAll(".strength-segment");
+const strengthSegments = document.querySelectorAll(".strength-div");
 const passwordMessage = document.getElementById("password-message");
 
 passwordInput.addEventListener("input", () => {
